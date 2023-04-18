@@ -9,7 +9,7 @@ const Home = () => {
     return (
     <div className='home'>
         <Navbar isScrolled={isScrolled} setIsScrolled={setIsScrolled}/>
-        <Featured/>
+        <Featured type="movie"/>
     </div>
   )
 }
