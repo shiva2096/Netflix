@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import "./register.scss"
 
 const Register = () => {
-
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -15,18 +16,19 @@ const Register = () => {
 
     const handleFinish = () => {
         setPassword(passwordRef.current.value);
+        navigate("/login");
     };
     /////////////////////////// PLEASE REMOVE ME ///////////////////////////
     console.log(password); // To hide the warning message of unused variable
     /////////////////////////// PLEASE REMOVE ME ///////////////////////////
-
+ 
   return (
     <div className="register">
         <img className="background" src="/images/register_bg.jpeg" alt="" />
         <div className="top">
             <div className="wrapper">
                 <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="" />
-                <button className="loginButton">Sign In</button>
+                <button className="loginButton" onClick={()=>navigate("/login")}>Sign In</button>
             </div>
         </div>
         <div className="container">

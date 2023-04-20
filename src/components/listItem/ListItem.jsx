@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import "./listItem.scss"
 import { Add, PlayArrow, ThumbDownAltOutlined, ThumbUpAltOutlined } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom';
 
 const ListItem = (props) => {
   const [isHovered, setIsHovered] = useState(false);
   const {index} = props;
   const trailer = "/images/trailer.mp4"
-
+  const navigate = useNavigate();
   return (
     <div className='listItem' 
       style={{left: isHovered && (index*227.5) -50}}
@@ -19,7 +20,7 @@ const ListItem = (props) => {
           <video src={trailer} autoPlay={true} loop></video>
           <div className="itemInfo">
             <div className="icons">
-              <PlayArrow className="icon"/>
+              <PlayArrow className="icon" onClick={()=>navigate("/watch")}/>
               <Add className="icon"/>
               <ThumbUpAltOutlined className="icon"/>
               <ThumbDownAltOutlined className="icon"/>

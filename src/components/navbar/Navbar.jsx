@@ -1,11 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import "./navbar.scss"
 import { ArrowDropDown, Notifications, Search } from '@mui/icons-material'
 
 const Navbar = (props) => {
     // Creating a useState hook to store the state of scroll
     const {isScrolled, setIsScrolled} = props;
-
+    const navigate = useNavigate();
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => (window.onscroll = null);  // Preventing infinite loop
@@ -32,7 +33,7 @@ const Navbar = (props) => {
                     <ArrowDropDown className='icon'/>
                     <div className="options">
                         <span>Settings</span>
-                        <span>Logout</span>
+                        <span onClick={()=>navigate("/login")}>Logout</span>
                     </div>
                 </div>
                 

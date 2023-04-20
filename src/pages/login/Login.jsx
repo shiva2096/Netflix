@@ -1,8 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import "./login.scss"
 
 const Login = () => {
-
+    const navigate = useNavigate();
   return (
     <div className="login">
         <img className="background" src="/images/register_bg.jpeg" alt="" />
@@ -19,9 +20,9 @@ const Login = () => {
                 <h1>Sign In</h1>
                 <input type="email" placeholder="Email or phone number"/>
                 <input type="password" placeholder="Password" />
-                <button className="loginButton" >Sign In</button>
+                <button className="loginButton" onClick={()=>navigate("/home")}>Sign In</button>
                 <span>
-                    New to Netflix? <b>Sign up now.</b>
+                    New to Netflix? <b onClick={()=>navigate("/")}>Sign up now.</b>
                 </span>
                 <small>
                     This page is protected by Goolge reCAPTCHA to ensure you're not a bot. <b>Learn more</b>.
